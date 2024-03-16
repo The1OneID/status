@@ -66,6 +66,7 @@ export interface govEventData {
 }
 
 export interface Transaction {
+  hash: string,
   sender: string,
   receiver: string,
   amount: number,

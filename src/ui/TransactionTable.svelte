@@ -6,8 +6,9 @@
 <main>
   <table class="uk-table uk-table-responsive uk-table-divider">
     <thead>
-    <!-- sender,receiver,amount,version,timestamp -->
+    <!-- hash, sender,receiver,amount,version,timestamp -->
     <tr>
+      <th>Hash</th>
       <th>Sender</th>
       <th>Receiver</th>
       <th>Amount</th>
@@ -19,6 +20,7 @@
     {#if $transactions.length > 0}
       {#each $transactions as tx}
         <tr>
+          <td>{tx.hash}</td>
           <td>{tx.sender}</td>
           <td>{tx.receiver}</td>
           <td>{scaleCoin(tx.amount)}</td>
