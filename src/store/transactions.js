@@ -1,8 +1,11 @@
 import { transactions } from '.'
 
 const API_ENDPOINT = import.meta.env.VITE_TX_API_HOST.concat('/transactions/')
+let isFetching = false
 
 export async function fetchTransactions() {
+  if (isFetching) return
+  isFetching = true
   try {
     const response = await fetch(API_ENDPOINT, {
       method: 'GET'
@@ -19,6 +22,7 @@ export async function fetchTransactions() {
   } catch (error) {
     console.error('Failed to fetch transactions:', error)
   }
+  isFetching = false
 }
 
 // fetchTransactions()
