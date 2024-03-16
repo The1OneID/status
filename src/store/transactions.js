@@ -1,9 +1,10 @@
 import { transactions } from '.'
 
+const API_ENDPOINT = import.meta.env.VITE_TX_API_HOST.concat('/transactions/')
+
 export async function fetchTransactions() {
-  let endpoint = '0.0.0.0:8888/transactions/'
   try {
-    const response = await fetch(endpoint, {
+    const response = await fetch(API_ENDPOINT, {
       method: 'GET'
     })
 
